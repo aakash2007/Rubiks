@@ -5,7 +5,7 @@ from models import Participant
 class RegisterView(CreateView):
 	model = Participant
 	fields = ['name', 'gender', 'phone', 'email']
-	template_name = 'register.html'
+	template_name = 'home.html'
 	success_url = "."
 	def post(self, request, *args, **kwargs):
 		res = super(RegisterView, self).post(request, *args, **kwargs)
