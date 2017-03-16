@@ -1,0 +1,23 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.black-background {
+	background-color:#000000;
+	border-color: #000000;
+}
+.black-background:hover {
+	background-color:#000000;
+	border-color: #000000;
+}
+.black-background:focus {
+	background-color:#000000;
+	border-color: #000000;
+}
+.black-background:blur {
+	background-color:#000000;
+	border-color: #000000;
+}
+
+.white {color:#ffffff;}
