@@ -17,8 +17,8 @@
 	  z-index: -99;
 	}
 	@font-face {
- 	 font-family: "Helvetica-Font";
- 	 src: url({% static 'css/Helvetica-Font.ttf' %}) format("truetype");
+	 font-family: "Helvetica-Font";
+	 src: url({% static 'css/Helvetica-Font.ttf' %}) format("truetype");
 	}
 	h1{
 		font-family: 'Helvetica-Font', sans-serif;
@@ -55,9 +55,9 @@
 <style type="text/css">
 	@media (min-width: 768px) {
 	  .navbar-nav.navbar-center {
-	    position: absolute;
-	    left: 50%;
-	    transform: translatex(-50%);
+		position: absolute;
+		left: 50%;
+		transform: translatex(-50%);
 	  }
 	}
 	.navbar-inner {
@@ -111,6 +111,22 @@
 		font-family: 'Raleway', serif;
 		letter-spacing: 1px;
 	}
+	.modal.fade-up .modal-dialog {
+	  -webkit-transition: -webkit-transform .3s ease-out;
+		   -o-transition:      -o-transform .3s ease-out;
+			  transition:         transform .3s ease-out;
+	  -webkit-transform: translate(0, 100%);
+		  -ms-transform: translate(0, 100%);
+		   -o-transform: translate(0, 100%);
+			  transform: translate(0, 100%);
+		z-index: 100;
+	}
+	.modal.in .modal-dialog {
+	  -webkit-transform: translate(0, 0);
+		  -ms-transform: translate(0, 0);
+		   -o-transform: translate(0, 0);
+			  transform: translate(0, 0);
+	}
 </style>
 <body background="{% static 'images/background.jpg' %}">
 <div id="particles-js" style="background-color: transparent !important;"></div>
@@ -148,7 +164,7 @@
 		</div>
 	</div>
 </div>
-<div id="about" class="modal fade" role="dialog">
+<div id="about" class="modal fade-up" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 				<div class="modal-header text-center" style="border-bottom: 0px !important; margin-bottom: 0px !important;">
@@ -190,7 +206,7 @@
 					</p>
 					<p style="font-family: 'Helvetica-Font', serif; line-height: 18px">
 						P.S.- Q) Does it involve getting out of bed?<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A)  Yes. Yes, you lethargic pie............
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A)  Yes. Yes, you lethargic pie............
 					</p>
 				</div>
 		</div>
