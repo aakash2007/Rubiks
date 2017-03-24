@@ -10,9 +10,13 @@ from models import Participant
 @method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(CreateView):
 	model = Participant
-	fields = ['name', 'email', 'idno', 'phone']
+	fields = ['name', 'idno', 'phone', 'can_solve', 'institute']
 	template_name = 'index.html'
 	success_url = '.'
+	def get_context_data(self, *args, **kwargs):
+		context = super(RegisterView, self).get_context_data(*args, **kwargs)
+		context["number"] = Participant.objects.all().count()
+		return context
 	def get(self, request, *args, **kwargs):
 		if request.is_ajax():
 			return JsonResponse({'count' : Participant.objects.all().count()})
@@ -24,5 +28,3 @@ class RegisterView(CreateView):
 		except:
 			res = super(RegisterView, self).post(request, *args, **kwargs)
 			return JsonResponse({'success' : 1, 'count' : Participant.objects.all().count()})
-
-		
