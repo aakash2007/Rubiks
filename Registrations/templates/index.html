@@ -4,7 +4,7 @@
 <head>
 	<title>World Record Society</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
@@ -133,7 +133,7 @@
 <div id="particles-js" style="background-color: transparent !important;"></div>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="navmain">
 	<div class="container-fluid">
-		<div class="collapse navbar-collapse">
+		<div class="">
 			<div class="nav navbar-nav navbar-left">
 				<a href="#" class="inherit"><img src="{% static 'images/BITS-Logo.png' %}" style="margin-top:40px; margin-left: 50px; width: 160px"></a>
 			</div>
@@ -244,11 +244,11 @@
 								<label class="control-label">Can you solve a Rubik's Cube?</label>
 								<div class="input-group">
 									<label class="radio-inline">
-										<input type="radio" value="1" name="can_solve" id="can_solve" value="on" required>
+										<input type="radio" value="on" name="can_solve" id="can_solve" value="on" required>
 										Yes
 									</label>
 									<label class="radio-inline">
-										<input type="radio" value="2" name="can_solve" id="can_solve" value="off" required>
+										<input type="radio" value="" name="can_solve" id="can_solve" value="off" required>
 										No
 									</label>
 								</div>
