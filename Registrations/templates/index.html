@@ -399,6 +399,10 @@
 					$('#register').trigger({type:"click"});
 					clock.setTime(res.count);
 					$("#message").attr("hidden", "");
+					$("input[name=name]").val("");
+					$("input[name=idno]").val("");
+					$("input[name=phone]").val("");
+					$("input[name=can_solve]:checked")[0].checked = false;
 				}
 			},
 			error:function(err, res) {
