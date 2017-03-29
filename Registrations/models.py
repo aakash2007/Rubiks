@@ -19,7 +19,7 @@ class Participant(models.Model):
 		if attr == "email":
 			pattern = re.compile(r"\d{4}.{4}\d{3}P?")
 			if pattern.match(str(self.idno)):
-				email = "f" + str.idno[:4]+str.idno[-4:-1]+"@pilani.bits-pilani.ac.in"
+				email = "f" + self.idno[:4]+self.idno[-4:-1]+"@pilani.bits-pilani.ac.in"
 				return email
 			else:
 				return None
