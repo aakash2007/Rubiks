@@ -122,3 +122,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/static/'
+
+try:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = AWSHOST
+    EMAIL_HOST_USER = AWSUSERNAME
+    EMAIL_HOST_PASSWORD = AWSPASSWORD
+    DEFAULT_FROM_EMAIL = AWSFROMEMAIL
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+except:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
