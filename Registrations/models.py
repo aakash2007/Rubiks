@@ -27,7 +27,7 @@ class Participant(models.Model):
 	def __str__(self):
 		return self.name
 		
-@receiver(post_save,sender=Participant)
+# @receiver(post_save,sender=Participant)
 def sendEmail(sender, instance, created, **kwargs):
 	if created and instance.email:
 		body = """
