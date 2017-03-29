@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'Rubiks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 try:
-    from config import DATABASES
+    from config import *
 except:
     DATABASES = {
         'default': {
