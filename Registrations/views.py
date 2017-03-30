@@ -7,12 +7,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 from models import Participant
 
-import xlsxwriter
+import xlsxwriter, StringIO
 from time import strftime, gmtime
-try:
-	import cStringIO as StringIO 
-except:
-	import StringIO
 # Create your views here.
 
 @method_decorator(csrf_exempt, name='dispatch')
