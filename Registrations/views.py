@@ -22,7 +22,7 @@ class RegisterView(CreateView):
 		context["number"] = Participant.objects.all().count()
 		return context
 	def get(self, request, *args, **kwargs):
-		if request.is_ajax():
+		if request.GET.get('count', False):
 			return JsonResponse({'count' : Participant.objects.all().count()})
 		return super(RegisterView, self).get(request, *args, **kwargs)
 	def post(self, request, *args, **kwargs):

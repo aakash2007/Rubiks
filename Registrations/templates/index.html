@@ -421,6 +421,7 @@
 	setInterval(function() {
 		$.get({
 			url:'.',
+			data:{'count':1},
 			success:function(res) {
 				clock.setTime(res.count);
 			}
