@@ -7,7 +7,6 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save 
 
 import re
-
 # Create your models here.
 class Participant(models.Model):
 	name = models.CharField(max_length=50, null=False, blank=False)
@@ -26,18 +25,18 @@ class Participant(models.Model):
 		return super(Participant, self).__getattribute__(attr)
 	def __str__(self):
 		return self.name
-		
-# @receiver(post_save,sender=Participant)
-def sendEmail(sender, instance, created, **kwargs):
-	if created and instance.email:
-		body = """
-Congratulations!!!
-You have registered for the world record attempt of most number of people solving Rubik's cube at the same time.
-You will recieve your Rubik's Cube & Instruction manual, shortly.
-Welcome aboard!
 
-World Record Soceity
-BITS Pilani
-"""
-		email = EmailMessage(subject="World Record Society Registration", body=body, to=[instance.email])
-		email.send()
+
+class BITSians(models.Model):
+	idno = models.CharField(max_length=15, primary_key=True)
+	name = models.CharField(max_length=100, blank=False)
+	hostel = models.CharField(max_length=4, blank=False)
+	room = models.PositiveSmallIntegerField()
+	email = models.EmailField(unique=True, blank=False)
+	registered = models.BooleanField(default=False)
+	def __unicode__(self):
+		return self.idno
+	class Meta:
+		verbose_name = 'BITSian'
+		verbose_name_plural = 'BITSians'
+		ordering = ('idno',)
