@@ -67,13 +67,13 @@ def ParticipantExcel(request, **kwargs):
 
 @staff_member_required
 def HostelExcel(request, hostel):
-	entries = BITSians.objects.filter(hostel__iexact=hostel).order_by('idno')
+	entries = BITSians.objects.filter(hostel__iexact=hostel).order_by('room')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
 	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
 	for b in entries:
 		writer.writerow([b.name, b.idno, b.hostel, b.room, b.registered])
-	filename = 'Participants.xlsx'
+	filename = 'Participants.csv'
 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
 	response['Content-Disposition'] = 'attachment; filename=%s' % filename
