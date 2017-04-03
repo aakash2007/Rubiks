@@ -22,7 +22,6 @@ class Participant(models.Model):
 			bitsian = BITSians.objects.get(idno=self.idno)
 			bitsian.registered = True
 			bitsian.save()
-			self.idno = bitsian.idno
 		except:
 			pass
 		return super(Participant,self).save(*args, **kwargs)
