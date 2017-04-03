@@ -18,15 +18,13 @@ class Participant(models.Model):
 	phone = models.CharField(max_length=15, blank=True, null=True)
 	can_solve = models.BooleanField(default=False)
 	def save(self, *args, **kwargs):
-		match = re.compile(r"(\d{4}).{4}(\d{3})P?").match(self.idno)
-		if match:
-			try:
-				bitsian = BITSians.objects.filter(idno__istartswith=match.group(1)).filter(idno__endswith=match.group(2)+'P')[0]
-				bitsian.registered = True
-				bitsian.save()
-				self.idno = bitsian.idno
-			except:
-				pass
+		try:
+			bitsian = BITSians.objects.get(idno=self.idno)
+			bitsian.registered = True
+			bitsian.save()
+			self.idno = bitsian.idno
+		except:
+			pass
 		return super(Participant,self).save(*args, **kwargs)
 	def __getattribute__(self, attr):
 		if attr == "email":
