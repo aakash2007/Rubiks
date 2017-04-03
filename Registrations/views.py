@@ -7,6 +7,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 from models import Participant
 
+import csv
 import xlsxwriter, StringIO
 from time import strftime, gmtime
 # Create your views here.
@@ -64,3 +65,16 @@ def ParticipantExcel(request, **kwargs):
 	response['Content-Disposition'] = 'attachment; filename=%s' % filename
 	return response
 
+@staff_member_required
+def HostelExcel(request, hostel):
+	entries = BITSians.objects.filter(hostel__iexact=hostel).order_by('idno')
+	output = StringIO.StringIO()
+	writer = csv.writer(output)
+	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
+	for b in entries:
+		writer.writerow([b.name, b.idno, b.hostel, b.Room, b.registered])
+	filename = 'Participants.xlsx'
+	output.seek(0)
+	response = HttpResponse(output.read(), content_type="application/ms-excel")
+	response['Content-Disposition'] = 'attachment; filename=%s' % filename
+	return response

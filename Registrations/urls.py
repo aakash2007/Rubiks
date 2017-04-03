@@ -7,4 +7,5 @@ from views import *
 urlpatterns = [
     url(r'^$', RegisterView.as_view(), name="home"),
     url(r'^excel/$', ParticipantExcel, name="excel"),
+    url(r'^excel/(?P<hostel>(.*))$', HostelExcel, name="excel"),
 ]
