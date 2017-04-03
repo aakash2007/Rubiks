@@ -21,7 +21,7 @@ class Participant(models.Model):
 		match = re.compile(r"(\d{4}).{4}(\d{3})P?").match(self.idno)
 		if match:
 			try:
-				bitsian = BITSians.objects.filter(idno__istartwith=match.group(1)).filter(idno__endswith=match.group(2)+'P')[0]
+				bitsian = BITSians.objects.filter(idno__istartswith=match.group(1)).filter(idno__endswith=match.group(2)+'P')[0]
 				bitsian.registered = True
 				bitsian.save()
 				self.idno = bitsian.idno

@@ -19,4 +19,4 @@ class BITSianAdmin(admin.ModelAdmin):
 	list_display = ('name', 'idno', 'hostel', 'room', 'email', 'registered')
 	search_fields = ('name', 'idno', 'room')
 	list_filter = ('hostel', 'registered',)
-	# readonly_fields = ('idno', 'email', 'registered')
+	readonly_fields = ('idno', 'email', 'registered')
