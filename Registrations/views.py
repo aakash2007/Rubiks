@@ -15,7 +15,7 @@ from time import strftime, gmtime
 @method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(CreateView):
 	model = Participant
-	fields = ['name', 'idno', 'phone', 'can_solve', 'institute']
+	fields = ['name', 'idno', 'phone', 'can_solve', 'institute', 'psrn', 'dept']
 	template_name = 'index.html'
 	success_url = '.'
 	def get_context_data(self, *args, **kwargs):

@@ -387,7 +387,9 @@
 		if($("#institute").val() == "Faculty") {
 			$("#idno").parent().addClass("input-group");
 			$("#idno").siblings("#suffix").addClass("input-group-addon");
-			$("#faculty").removeAttr("hidden")
+			$("#faculty").removeAttr("hidden");
+			$("#dept").attr("required", "");
+			$("#psrn").attr("required", "");
 		}
 		else {
 			$("#idno").parent().removeClass("input-group");
