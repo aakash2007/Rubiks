@@ -44,7 +44,7 @@ class BITSians(models.Model):
 	name = models.CharField(max_length=100, blank=False)
 	hostel = models.CharField(max_length=4, blank=False)
 	room = models.PositiveSmallIntegerField()
-	email = models.EmailField(unique=True, blank=False)
+	email = models.EmailField(blank=False)
 	registered = models.BooleanField(default=False)
 	def __unicode__(self):
 		return self.idno
