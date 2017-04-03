@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.admin.views.decorators import staff_member_required
 
-from models import Participant
+from models import *
 
 import csv
 import xlsxwriter, StringIO
