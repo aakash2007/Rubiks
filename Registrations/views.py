@@ -20,19 +20,18 @@ class RegisterView(CreateView):
 	success_url = '.'
 	def get_context_data(self, *args, **kwargs):
 		context = super(RegisterView, self).get_context_data(*args, **kwargs)
-		context["number"] = Participant.objects.all().count()
+		context["number"] = Participant.objects.all().count() + 2000
 		return context
 	def get(self, request, *args, **kwargs):
 		if request.GET.get('count', False):
-			return JsonResponse({'count' : Participant.objects.all().count()})
+			return JsonResponse({'count' : Participant.objects.all().count() + 2000}) 
 		return super(RegisterView, self).get(request, *args, **kwargs)
 	def post(self, request, *args, **kwargs):
-		try:
-			Participant.objects.get(idno=request.POST['idno'])
+		if request.POST['institute'] == "BITS" and Participant.objects.filter(idno=request.POST['idno'], institute="BITS"):
 			return JsonResponse({'error' : 1})
-		except:
+		else:
 			res = super(RegisterView, self).post(request, *args, **kwargs)
-			return JsonResponse({'success' : 1, 'count' : Participant.objects.all().count()})
+			return JsonResponse({'success' : 1})
 
 @staff_member_required
 def ParticipantExcel(request, **kwargs):

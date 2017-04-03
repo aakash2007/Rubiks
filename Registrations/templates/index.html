@@ -297,7 +297,7 @@
 		</div>
 	</div>
 </div>
-<div id="register" class="modal fade" role="dialog" style="transform: translateY(14vh);">
+<div id="register" class="modal fade" role="dialog" style="transform: translateY(0vh);">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header text-center" style="border-bottom: 0px !important;">
@@ -316,8 +316,16 @@
 									<option disabled selected value="">Institute</option>
 									<option value="BITS">BITS</option>
 									<option value="B.E.T.">B.E.T.</option>
-									<option value="Faculty">Faculty</option>
+									<option value="Faculty">Faculty / Staff</option>
 								</select>
+							</div>
+							<div id="faculty" hidden>
+								<div class="form-group">
+									<input type="text" name="dept" id="dept" class="form-control" placeholder="Department" value="">
+								</div>
+								<div class="form-group">	
+									<input type="text" name="psrn" id="psrn" class="form-control" placeholder="PSRN No." value="">
+								</div>
 							</div>
 							<div class="form-group">
 								<input type="text" name="idno" id="idno" class="form-control" placeholder="ID" required>
@@ -379,10 +387,12 @@
 		if($("#institute").val() == "Faculty") {
 			$("#idno").parent().addClass("input-group");
 			$("#idno").siblings("#suffix").addClass("input-group-addon");
+			$("#faculty").removeAttr("hidden")
 		}
 		else {
 			$("#idno").parent().removeClass("input-group");
 			$("#idno").siblings("#suffix").removeClass("input-group-addon");
+			$("#faculty").attr("hidden", "")
 		};
 	});
 	$("#register-form").submit(function(event) {
@@ -398,6 +408,10 @@
 			alert(data.idno + " is an invalid ID No.");
 			return false;
 		}
+		if(data.institute == "Faculty") {
+			data.dept = $("input[name=dept]").val();
+			data.psrn = $("input[name=psrn]").val();
+		};
 		$.post({
 			url:'.',
 			data:data,
@@ -410,7 +424,6 @@
 				}
 				else {
 					$('#register').trigger({type:"click"});
-					clock.setTime(res.count);
 					$("#message").attr("hidden", "");
 					$("input[name=name]").val("");
 					$("input[name=idno]").val("");

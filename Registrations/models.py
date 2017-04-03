@@ -15,6 +15,8 @@ class Participant(models.Model):
 	name = models.CharField(max_length=50, null=False, blank=False)
 	institute = models.CharField(max_length=10, default='')
 	idno = models.CharField(max_length=50)
+	dept = models.CharField(max_length=50, blank=True, null=True)
+	psrn = models.CharField(max_length=50, blank=True, null=True)
 	phone = models.CharField(max_length=15, blank=True, null=True)
 	can_solve = models.BooleanField(default=False)
 	def save(self, *args, **kwargs):
