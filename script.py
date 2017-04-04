@@ -1,4 +1,5 @@
 from django.core.mail import EmailMessage
+import time
 
 def MassMail(filename):
 	body = """
@@ -23,3 +24,4 @@ Abhishek
 		email = EmailMessage(subject="Rubik's Cube Distribution", body=body, to=["worldrecordsociety@gmail.com"], bcc=emails[:45])
 		email.send()
 		emails = emails[45:]
+		time.sleep(1)
