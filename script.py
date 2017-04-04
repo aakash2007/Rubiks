@@ -5,7 +5,7 @@ def MassMail(filename):
 Hey !
 Congratulations !
 You have been registered for the official attempt to set a new Guinness World Record for the Highest Number of People to Solve the Rubik's Cube Simultaneously to be held on Sunday, 16th April '17.
-We will distribute the Cubes today i.e. the 4th of April ’17, at your respective Bhawans.
+We will distribute the Cubes today i.e. the 4th of April '17, at your respective Bhawans.
 
 This is your opportunity to start hands-on learning and practice their solution. 
 You are strictly advised to be gentle with the practicing and take care not to damage the cubes. 
