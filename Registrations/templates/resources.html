@@ -159,6 +159,12 @@
 			margin:0 auto;
 			text-align: center;
 		}
+		.mycard {
+			background: white;
+			border: 10px solid white;
+			border-radius: 10px;
+			text-align: center;
+		}
 		@media screen and (max-width: 890px){
 			.midguy{
 				width:100%;
@@ -193,6 +199,9 @@
 				border-radius: 15px;
 
 			}
+			.mycard {
+				margin: 10px;
+			}
 		}
 		@media screen and (max-width:600px){
 			.midguy{
@@ -206,12 +215,7 @@
 				padding-left: 0px !important;
 			}
 		}
-		.mycard {
-			background: white;
-			border: 10px solid white;
-			border-radius: 10px;
-			text-align: center;
-		}
+		
 	</style>
 </head>
 <body background="{% static 'images/background.jpg' %}">
@@ -224,7 +228,7 @@
 			<br>
 		</div>
 		<div class="col-sm-4" style="margin 0 auto;text-align:center;">
-			<a href="#" class="inherit text-center">
+			<a href="/" class="inherit text-center">
 				<h1 class="sitehead">WORLD RECORD SOCIETY - BITS Pilani</h1>
 				<h1 class="tagline">GUTS TO DREAM BIG</h1>
 				<br>
