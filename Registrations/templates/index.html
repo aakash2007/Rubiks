@@ -193,6 +193,15 @@
 				font-size: 16px;
 				border-radius: 15px;
 			}
+			.btn-lg {
+			  width: 100px;
+			  height: 30px;
+				text-align: center;
+				padding: 0px;
+			  line-height: 30px;
+				font-size: 16px;
+				border-radius: 15px;
+			}
 			.btn-circle.btn-xl {
 			  width: 150px;
 			  height: 30px;
@@ -260,7 +269,14 @@
 <div class="container-fluid">
 	<div class="container" style="text-align:center;">
 		<p class="tagline" style="font-size: 18px !important; ">On the occassion of 123rd birth anniversary of Shri G.D. Birla, founder of BITS Pilani, we are attempting a Guinness World Record of maximum number of people solving Rubik's cube at the same time here in pilani.Our target is 4000 people from BITS and BET.<br>Come and be a part of Guinness world record on 16th April, 2017.</p>
-		<button class="btn btn-info" style="border-radius: 15px; margin-top: 5px;" data-toggle="modal" data-target="#about">FAQ</button>
+		<br>
+		<div class="row">
+		<div class="col-sm-6 col-sm-offset-3" style="text-align:center;">
+			<a href="{% url 'registration:resources' %}" class="btn btn-xl btn-warning btn-circle">Learn Rubik's Cube</a>
+		</div>
+		</div>
+		<br> 
+		<button class="btn btn-info btn-lg" style="border-radius: 15px; margin-top: 5px;" data-toggle="modal" data-target="#about">FAQ</button>
 	</div>
 	<br><br>
 </div>
