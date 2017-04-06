@@ -67,6 +67,8 @@ def ParticipantExcel(request, **kwargs):
 @staff_member_required
 def HostelExcel(request, hostel):
 	entries = BITSians.objects.filter(hostel__iexact=hostel).order_by('-registered','room')
+	if hostel.lower() == "all":
+		entries = BITSians.objects.all().order_by('hostel', '-registered', 'room')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
 	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
