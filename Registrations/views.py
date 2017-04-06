@@ -35,7 +35,7 @@ class RegisterView(CreateView):
 
 @staff_member_required
 def ParticipantExcel(request, **kwargs):
-	entries = Participant.objects.filter(**kwargs).order_by('idno')
+	entries = Participant.objects.filter(id__gte=1435).order_by('idno')
 	output = StringIO.StringIO()
 	workbook = xlsxwriter.Workbook(output)
 	worksheet = workbook.add_worksheet('new-spreadsheet')
@@ -71,7 +71,7 @@ def HostelExcel(request, hostel):
 	writer = csv.writer(output)
 	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
 	for b in entries:
-		writer.writerow([b.name, b.idno, b.hostel, b.room, b.registered])
+		writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])
 	filename = 'Participants.csv'
 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
