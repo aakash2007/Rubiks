@@ -71,7 +71,7 @@ def HostelExcel(request, hostel):
 	writer = csv.writer(output)
 	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
 	for b in entries:
-		writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room.encode('ascii', 'ignore'), b.registered])
+		writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])
 	filename = 'Participants.csv'
 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
