@@ -35,7 +35,7 @@ class RegisterView(CreateView):
 
 @staff_member_required
 def ParticipantExcel(request, **kwargs):
-	entries = Participant.objects.filter(**kwargs).order_by('idno')
+	entries = Participant.objects.filter(id__gte=1435).order_by('idno')
 	output = StringIO.StringIO()
 	workbook = xlsxwriter.Workbook(output)
 	worksheet = workbook.add_worksheet('new-spreadsheet')

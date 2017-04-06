@@ -1,4 +1,5 @@
 from django.core.mail import EmailMessage
+from Registrations.models import *
 import time, csv
 
 def MassMail(filename):
@@ -31,6 +32,6 @@ def  addexcel(filename):
 	count = 0
 	for r in csv.reader(open(filename, 'r')):
 		if Participant.objects.filter(idno__iexact=r[1].strip()).count() == 0:
-			p = Participant.objects.create(name=r[0].strip(), idno=r[1].srtip().upper(), phone=r[2].strip(), institute="BITS")
+			p = Participant.objects.create(name=r[0].strip(), idno=r[1].strip().upper(), phone=r[2].strip(), institute="BITS")
 			count += 1
 	return count
