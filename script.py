@@ -21,7 +21,7 @@ Abhishek
 	for line in open(filename).readlines():
 		emails.append(line.strip())
 	while len(emails) > 0:
-		email = EmailMessage(subject="Rubik's Cube Distribution", body=body, to=["worldrecordsociety@gmail.com"], bcc=emails[:45])
+		email = EmailMessage(subject="Rubik's Cube Distribution", body=body, to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
 		email.send()
-		emails = emails[45:]
+		emails = emails[10:]
 		time.sleep(1)
