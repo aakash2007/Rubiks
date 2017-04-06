@@ -71,11 +71,7 @@ def HostelExcel(request, hostel):
 	writer = csv.writer(output)
 	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
 	for b in entries:
-		try:
-			if Participant.objects.filter(idno=b.idno)[0].id > 1435:
-				writer.writerow([b.name, b.idno, b.hostel, b.room, b.registered])
-		except:
-			writer.writerow([b.name, b.idno, b.hostel, b.room, b.registered])
+		writer.writerow([b.name, b.idno, b.hostel, b.room, b.registered])
 	filename = 'Participants.csv'
 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
