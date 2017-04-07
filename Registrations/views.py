@@ -88,20 +88,18 @@ def HostelExcel(request, hostel):
 
 @staff_member_required
 def CustomExcel(request):
-	filter = {}
+	entries = Participant.objects.all().order_by('hostel', '-registered', 'room', 'id')
 	for k in request.GET:
-		filter[k] = request.GET.get(k)
-	print filter
-	entries = BITSians.objects.filter(**filter).order_by('hostel', '-registered', 'room', 'id')
+		entries = entries.filter(**{k:request.GET.get(k)})
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
-	writer.writerow(["ID", "Name", "ID No.", "Hostel", "Room", "Registered", "Phone"])
-	for b in entries:
+	writer.writerow(["ID", "Name", "ID No.", "Hostel", "Room", "Phone", "Dept.", "PSRN"])
+	for p in entries:
 		try:
-			p = Participant.objects.get(idno=b.idno)
-			writer.writerow([p.id, b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered, p.phone])
+			b = BITSians.objects.get(idno=p.idno)
+			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, p.phone, p.dept, p.psrn])
 		except:
-			writer.writerow(["", b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])
+			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), "", "", p.phone, p.dept, p.psrn])
 	filename = 'Participants.csv'
  	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
