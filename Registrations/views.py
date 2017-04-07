@@ -88,7 +88,7 @@ def HostelExcel(request, hostel):
 
 @staff_member_required
 def CustomExcel(request):
-	entries = Participant.objects.all().order_by('hostel', '-registered', 'room', 'id')
+	entries = Participant.objects.all().order_by('id')
 	for k in request.GET:
 		entries = entries.filter(**{k:request.GET.get(k)})
 	output = StringIO.StringIO()
