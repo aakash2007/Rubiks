@@ -71,9 +71,13 @@ def HostelExcel(request, hostel):
 		entries = BITSians.objects.all().order_by('hostel', '-registered', 'room')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
-	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered"])
+	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered", "Phone"])
 	for b in entries:
-		writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])
+		try:
+			p = Participant.objects.get(idno=b.idno)
+			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered, p.phone])
+		except:
+			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])	
 	filename = 'Participants.csv'
 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
