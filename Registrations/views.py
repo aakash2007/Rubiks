@@ -79,7 +79,31 @@ def HostelExcel(request, hostel):
 		except:
 			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])	
 	filename = 'Participants.csv'
-	output.seek(0)
+ 	output.seek(0)
+	response = HttpResponse(output.read(), content_type="application/ms-excel")
+	response['Content-Disposition'] = 'attachment; filename=%s' % filename
+	return response
+
+
+
+@staff_member_required
+def CustomExcel(request):
+	filter = {}
+	for k in request.GET:
+		filter[k] = request.GET.get(k)
+	print filter
+	entries = BITSians.objects.filter(**filter).order_by('hostel', '-registered', 'room', 'id')
+	output = StringIO.StringIO()
+	writer = csv.writer(output)
+	writer.writerow(["ID", "Name", "ID No.", "Hostel", "Room", "Registered", "Phone"])
+	for b in entries:
+		try:
+			p = Participant.objects.get(idno=b.idno)
+			writer.writerow([p.id, b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered, p.phone])
+		except:
+			writer.writerow(["", b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])
+	filename = 'Participants.csv'
+ 	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
 	response['Content-Disposition'] = 'attachment; filename=%s' % filename
 	return response
