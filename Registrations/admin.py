@@ -8,7 +8,7 @@ class ParticipantAdmin(admin.ModelAdmin):
 	actions_on_bottom = True
 	empty_value_display = '-empty-'
 	list_display = ('name', 'institute', 'idno', 'phone', 'can_solve')
-	search_fields = ('name', 'idno','phone')
+	search_fields = ('name', 'idno')
 	list_filter = ('institute', 'can_solve',)
 
 @admin.register(BITSians)
