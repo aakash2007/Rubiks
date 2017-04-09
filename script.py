@@ -2,6 +2,7 @@ from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from Registrations.models import *
 import time, csv
+from Rubiks.settings import *
 
 def MassMail(filename):
 	body = render_to_string('mail.html')
@@ -14,6 +15,7 @@ def MassMail(filename):
 		email = EmailMultiAlternatives(subject="Rubik's Cube Workshop", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
 		email.attach_alternative(body, "text/html")
 		try:
+			email.attach_file(BASE_DIR+'data/RubiksSolution.pdf')
 			email.send()
 		except:
 			for em in emails[:10]:
