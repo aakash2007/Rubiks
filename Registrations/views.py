@@ -71,7 +71,7 @@ def HostelExcel(request, hostel):
 		entries = BITSians.objects.all().order_by('hostel', '-registered', 'room')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
-	writer.writerow(["Mame", "ID No.", "Hostel", "Room", "Registered", "Phone"])
+	writer.writerow(["Name", "ID No.", "Hostel", "Room", "Registered", "Phone"])
 	for b in entries:
 		try:
 			p = Participant.objects.get(idno=b.idno)
