@@ -15,7 +15,7 @@ def MassMail(filename):
 		email = EmailMultiAlternatives(subject="Rubik's Cube Workshop", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
 		email.attach_alternative(body, "text/html")
 		try:
-			email.attach_file(BASE_DIR+'data/RubiksSolution.pdf')
+			email.attach_file(BASE_DIR+'/data/RubiksSolution.pdf')
 			email.send()
 		except:
 			for em in emails[:10]:
