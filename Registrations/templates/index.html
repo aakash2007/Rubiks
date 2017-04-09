@@ -419,6 +419,8 @@
 			$("#idno").parent().removeClass("input-group");
 			$("#idno").siblings("#suffix").removeClass("input-group-addon");
 			$("#faculty").attr("hidden", "")
+			$("#dept").removeAttr("required");
+			$("#psrn").removeAttr("required");
 		};
 	});
 	$("#register-form").submit(function(event) {
