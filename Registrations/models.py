@@ -21,7 +21,7 @@ class Participant(models.Model):
 	can_solve = models.BooleanField(default=False)
 	def save(self, *args, **kwargs):
 		try:
-			bitsian = BITSians.objects.get(idno=self.idno)
+			bitsian = BITSians.objects.get(idno__iexact=self.idno)
 			bitsian.registered = True
 			bitsian.save()
 		except:
