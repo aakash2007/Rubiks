@@ -431,8 +431,8 @@
 			phone:$("input[name=phone]").val(),
 			can_solve:$("input[name=can_solve]:checked").val(),
 		};
-		var pat = /\d{4}.{4}\d{3}P/;
-		if(!pat.test(data.idno) && pat.length != 12 && data.institute == "BITS") {
+		var pat = /^\d{4}.{4}\d{3}P$/;
+		if(!pat.test(data.idno) && data.institute == "BITS") {
 			alert(data.idno + " is an invalid ID No.");
 			return false;
 		}
