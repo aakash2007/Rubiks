@@ -1,5 +1,5 @@
-from django.core.mail import EmailMessage
-from django.template.loader import render_to_string, get_template
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
 from Registrations.models import *
 import time, csv
 
@@ -11,7 +11,8 @@ def MassMail(filename):
 		emails.append(line.strip().lower())
 	emails = list(set(emails))
 	while len(emails) > 0:
-		email = EmailMessage(subject="Rubik's Cube Workshop", body=body, to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
+		email = EmailMultiAlternatives(subject="Rubik's Cube Workshop", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
+		email.attach_alternative(body, "text/html")
 		try:
 			email.send()
 		except:
@@ -19,7 +20,6 @@ def MassMail(filename):
 				errlog.writerow([em])
 		emails = emails[10:]
 		time.sleep(1)
-
 
 def  addexcel(filename):
 	count = 0

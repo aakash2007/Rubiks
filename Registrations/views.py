@@ -74,8 +74,9 @@ def HostelExcel(request, hostel):
 	writer.writerow(["Name", "ID No.", "Hostel", "Room", "Registered", "Phone"])
 	for b in entries:
 		try:
-			p = Participant.objects.get(idno=b.idno)
-			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered, p.phone])
+			if p.id >= 1435:
+				p = Participant.objects.get(idno=b.idno)
+				writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered, p.phone])
 		except:
 			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, b.registered])	
 	filename = 'Participants.csv'
@@ -83,8 +84,6 @@ def HostelExcel(request, hostel):
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
 	response['Content-Disposition'] = 'attachment; filename=%s' % filename
 	return response
-
-
 
 @staff_member_required
 def CustomExcel(request):
