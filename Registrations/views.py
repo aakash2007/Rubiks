@@ -91,13 +91,13 @@ def CustomExcel(request):
 		entries = entries.filter(**{k:request.GET.get(k)})
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
-	writer.writerow(["ID", "Name", "ID No.", "Hostel", "Room", "Phone", "Dept.", "PSRN"])
+	writer.writerow(["ID", "Name", "ID No.", "Hostel", "Room", "Phone","Can Solve", "Dept.", "PSRN"])
 	for p in entries:
 		try:
 			b = BITSians.objects.get(idno=p.idno)
-			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, p.phone, p.dept, p.psrn])
+			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, p.phone, p.can_solve, p.dept, p.psrn])
 		except:
-			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), "", "", p.phone, p.dept, p.psrn])
+			writer.writerow([p.id, p.name.encode('ascii', 'ignore'), p.idno.encode('ascii', 'ignore'), "", "", p.phone, p.can_solve, p.dept, p.psrn])
 	filename = 'Participants.csv'
  	output.seek(0)
 	response = HttpResponse(output.read(), content_type="application/ms-excel")
