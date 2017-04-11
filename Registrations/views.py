@@ -109,7 +109,7 @@ def BITSExcel(request):
 	entries = BITSians.objects.all().order_by('id')
 	for k in request.GET:
 		entries = entries.filter(**{k:request.GET.get(k)})
-	entries = entries.order_by('registered')
+	entries = entries.order_by('hostel', 'room', 'registered')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
 	writer.writerow(["Name", "ID No.", "Hostel", "Room", "Phone","Can Solve"])
