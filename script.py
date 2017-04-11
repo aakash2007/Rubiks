@@ -23,6 +23,9 @@ def MassMail(filename):
 		emails = emails[10:]
 		time.sleep(1)
 
+	email = EmailMultiAlternatives(subject="Rubik's Cube", body="Mail Sent", to=["kar.deepak2011@gmail.com"])
+	email.send()
+
 def  addexcel(filename):
 	count = 0
 	for r in csv.reader(open(filename, 'r')):
