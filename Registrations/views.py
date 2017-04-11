@@ -109,13 +109,13 @@ def BITSExcel(request):
 	entries = BITSians.objects.all().order_by('id')
 	for k in request.GET:
 		entries = entries.filter(**{k:request.GET.get(k)})
-	entries = entries.order_by('hostel', 'room', 'registered')
+	entries = entries.order_by('hostel', '-registered', 'room')
 	output = StringIO.StringIO()
 	writer = csv.writer(output)
 	writer.writerow(["Name", "ID No.", "Hostel", "Room", "Phone","Can Solve"])
 	for b in entries:
 		try:
-			p = Participant.objects.get(idno=p.idno)
+			p = Participant.objects.get(idno=b.idno)
 			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, p.phone, p.can_solve])
 		except:
 			writer.writerow([b.name.encode('ascii', 'ignore'), b.idno.encode('ascii', 'ignore'), b.hostel.encode('ascii', 'ignore'), b.room, "", ""])
