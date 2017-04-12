@@ -12,10 +12,9 @@ def MassMail(filename):
 		emails.append(line.strip().lower())
 	emails = list(set(emails))
 	while len(emails) > 0:
-		email = EmailMultiAlternatives(subject="Rubik's Cube Workshop", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
+		email = EmailMultiAlternatives(subject="Call For Volunteers", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
 		email.attach_alternative(body, "text/html")
 		try:
-			email.attach_file(BASE_DIR+'/data/RubiksSolution.pdf')
 			email.send()
 		except:
 			for em in emails[:10]:
