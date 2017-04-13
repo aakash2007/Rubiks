@@ -321,14 +321,14 @@
 		</div>
 	</div>
 </div>
-<div id="register" class="modal fade" role="dialog" style="transform: translateY(25vh);">
+<div id="register" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header text-center" style="border-bottom: 0px !important;">
 				<h1 style="font-family: 'Helvetica-Font', sans-serif;"><b>Register</b></h1>
 			</div>
-			<h3 style="font-family: 'Helvetica-Font', sans-serif; text-align: center;">Registrations Are Closed.<br><br></h3>
-			<!-- <form id="register-form">
+			<h3 hidden style="font-family: 'Helvetica-Font', sans-serif; text-align: center;">Registrations Are Closed.<br><br></h3>
+			<form id="register-form">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
@@ -384,7 +384,7 @@
 					</div>
 				</div>
 			</div>
-			</form>  -->
+			</form> 
 		</div>
 	</div>
 </div>
@@ -424,7 +424,7 @@
 			$("#psrn").removeAttr("required");
 		};
 	});
-	/* $("#register-form").submit(function(event) {
+	 $("#register-form").submit(function(event) {
 		var data = {
 			name:$("input[name=name]").val(),
 			institute:$("select[name=institute]").val(),
@@ -468,7 +468,7 @@
 			},
 		});
 		return false;
-	}); */
+	}); 
 	setInterval(function() {
 		$.get({
 			url:'.',

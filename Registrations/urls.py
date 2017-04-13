@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^bits/$', BITSExcel),
     url(r'^resources/$', TemplateView.as_view(template_name='resources.html'), name="resources"),
     url(r'^barcode/$', barcode.barcode, name="barcode"),
+    url(r'^html/$', barcode.htmls, name="barcode"),
 ]

@@ -12,7 +12,7 @@ def MassMail(filename):
 		emails.append(line.strip().lower())
 	emails = list(set(emails))
 	while len(emails) > 0:
-		email = EmailMultiAlternatives(subject="Call For Volunteers", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
+		email = EmailMultiAlternatives(subject="World Record Attempt Registrations Reopened", body="...", to=["worldrecordsociety@gmail.com"], bcc=emails[:10])
 		email.attach_alternative(body, "text/html")
 		try:
 			email.send()

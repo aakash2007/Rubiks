@@ -13,6 +13,7 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE
 
+from django.shortcuts import render
 from django.http import HttpResponse
 from PIL import Image
 from PIL import ImageDraw
@@ -225,3 +226,12 @@ def barcode(request):
 	response = HttpResponse(output.read(), content_type="image/jpeg")
 	response['Content-Disposition'] = 'attachment; filename=barcode.jpeg' 
 	return response
+
+def htmls(request):
+	block = request.GET.get("block", "A1")
+	start = int(request.GET.get("start", 1))
+	datas = []
+	for i in range(start,start+9, 2):
+		datas.append([block+"%02d" % i, block+"%02d" % (i+1)])
+	print datas
+	return render(request, 'barcode.html', {'datas': datas})
