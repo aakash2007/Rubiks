@@ -4,10 +4,10 @@
 <head>
 	<title>World Record Society</title>
 	<meta charset="utf-8">
-	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="google-site-verification" content="En2DlK-Wnacj9clW6pENoiC3fIkfpT-Wxwt8H1wIY7s" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="En2DlK-Wnacj9clW6pENoiC3fIkfpT-Wxwt8H1wIY7s" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
@@ -54,7 +54,7 @@
 
 	<script src="{% static 'jquery.slim.min.js' %}"></script>
 	<link href="{% static 'Merryweather.css' %}" rel="stylesheet">
-	<link href="{% static 'Raleway' %}" rel="stylesheet">
+	<link href="{% static 'Raleway.css' %}" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'compiled/flipclock.css' %}">
 	<script src="{% static 'compiled/flipclock.js' %}"></script>
 	<style type="text/css">
@@ -98,11 +98,11 @@
 		}
 		.btn-circle.btn-xl {
 		  width: 280px;
-		  height: 70px;
+		  height: 50px;
 		  padding: 10px 16px;
 		  font-size: 24px;
 		  line-height: 1.33;
-		  border-radius: 35px;
+		  border-radius: 10px;
 		  font-size: 22px;
 		  box-shadow: none !important;
 		}
@@ -124,9 +124,9 @@
 				  transform: translate(0, 0);
 		}
 		.inside {
-			background-color: white;
-			overflow: hidden;
-			text-align: center;
+		background-color: white;
+		overflow: hidden;
+		text-align: center;
 		}
 
 		.catch{
@@ -159,12 +159,6 @@
 			margin:0 auto;
 			text-align: center;
 		}
-		.mycard {
-			background: white;
-			border: 10px solid white;
-			border-radius: 10px;
-			text-align: center;
-		}
 		@media screen and (max-width: 890px){
 			.midguy{
 				width:100%;
@@ -172,7 +166,7 @@
 			}
 		}
 		@media screen and (max-width: 800px){
-		  .small{
+		  	.small{
 				width: 120px;
 			}
 			.small2{
@@ -197,10 +191,25 @@
 			  line-height: 30px;
 				font-size: 16px;
 				border-radius: 15px;
-
 			}
-			.mycard {
-				margin: 10px;
+			.btn-lg {
+			  width: 100px;
+			  height: 30px;
+				text-align: center;
+				padding: 0px;
+			  line-height: 30px;
+				font-size: 16px;
+				border-radius: 15px;
+			}
+			.btn-circle.btn-xl {
+			  width: 150px;
+			  height: 30px;
+			  padding: 0px;
+			  line-height: 30px;
+			  border-radius: 10px;
+			  font-size: 16px;
+			  margin-top: 10px;
+			  box-shadow: none !important;
 			}
 		}
 		@media screen and (max-width:600px){
@@ -215,7 +224,6 @@
 				padding-left: 0px !important;
 			}
 		}
-		
 	</style>
 </head>
 <body background="{% static 'images/background2.png' %}">
@@ -228,7 +236,7 @@
 			<br>
 		</div>
 		<div class="col-sm-4" style="margin 0 auto;text-align:center;">
-			<a href="/" class="inherit text-center">
+			<a href="." class="inherit text-center">
 				<h1 class="sitehead">WORLD RECORD SOCIETY - BITS Pilani</h1>
 				<h1 class="tagline">GUTS TO DREAM BIG</h1>
 				<br>
@@ -240,103 +248,107 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid">
-	<div class="row" style="text-align: center;">
-		<h1 style="color:white !important;">Solving Rubik's Cube</h1>
-	</div>
-	<div class="row" style="">
-		<div class="col-sm-10 col-sm-offset-1">
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">1. Get to Know Your Rubik's Cube</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/DpUG5c_KDFc" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">2. Solving the White Cross</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/UXE-xTKKhXQ" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">3. Solve the White Corners</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/x5EwSYkxU0w" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">&nbsp;</div>
-	<div class="row" style="">
-		<div class="col-sm-10 col-sm-offset-1">
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">4. Solving the Middle Layer</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/G7YJlurLeAg" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">5. Solve the Top Face</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Tfq6iikbpLQ" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card mycard">
-					<div class="card-block">
-						<h4 class="card-title">6. Solving the Final Layer</h4>
-						<iframe width="100%" height="100%" src="https://www.youtube.com/embed/o58WqeePYKA" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="container-fluid" style="text-align:center;">
+	<div class="midguy">
+			<div class="clock"></div>
 	</div>
 </div>
-<div class="container-fluid" style="margin-top: 20px">
+<div class="container-fluid">
 	<div class="container" style="text-align:center;">
-		<button class="btn btn-info" style="border-radius: 15px; margin-top: 5px;" data-toggle="modal" data-target="#about">Extra Resources</button>
+		<p class="tagline" style="font-size: 18px !important; ">On the occassion of 123rd birth anniversary of Shri G.D. Birla, founder of BITS Pilani, we are attempting a Guinness World Record of maximum number of people solving Rubik's cube at the same time here in pilani.Our target is 4000 people from BITS and BET.<br>Come and be a part of Guinness world record on 16th April, 2017.</p>
 	</div>
 	<br><br>
 </div>
-<div id="about" class="modal fade-up" role="dialog" style="transform: translateY(18vh);">
-	<div class="modal-dialog">
-		<div class="modal-content">
-				<div class="modal-header text-center" style="border-bottom: 0px !important; margin-bottom: 0px !important;">
-					<h1 style="font-family: 'Helvetica-Font', sans-serif;">Additional Resources</h1>
-				</div>
-				<div class="modal-body" style="margin-: 10px !important; margin-right: 10px !important;">
-					<div class="list-group">
-						<a href="https://drive.google.com/file/d/0B5NJ80k16lUcNkkydnZ6UHlZOUE/view?usp=sharing" class="list-group-item" target="blank">&bull; Complete Guide to Solving Rubik's Cube (PDF)</a>
-						<a href="https://youtu.be/MaltgJGz-dU" class="list-group-item" target="blank">&bull; How to Solve the 3x3 Rubik's Cube (Video)</a>
-						<a href="https://youtu.be/rmnSpUgOvyI" class="list-group-item" target="blank">&bull; How to Solve a 3x3x3 Rubik's Cube: Easiest Tutorial (Video)</a>
-					</div>
-				</div>
-				<div class="modal-footer text-center" style="border-top: 0px !important; margin-top: 0px !important;">
-					<button class="btn btn-md" onclick="$('#about').trigger({type:'click'});">Close</button>
-				</div>
-		</div>
-	</div>
-</div>
+
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/jquery-3.1.1.js' %}"></script>
 <script src="{% static 'js/particles.js' %}"></script>
+
 <script src="{% static 'js/aos.js' %}"></script>
+
 <script type="text/javascript">
 	particlesJS.load("particles-js", "{% static 'js/particlesjs-config.json' %}", function() {
 	  console.log('callback - particles.js config loaded');
 	});
 	AOS.init();
+	var clock;
+	$(document).ready(function() {
+		clock = new FlipClock($('.clock'), {{number}}, {
+			clockFace: 'Counter'
+		});
+	});
 </script>
-
+<script type="text/javascript">
+	$("#institute").change(function(event) {
+		if($("#institute").val() == "Faculty") {
+			$("#idno").parent().addClass("input-group");
+			$("#idno").siblings("#suffix").addClass("input-group-addon");
+			$("#faculty").removeAttr("hidden");
+			$("#dept").attr("required", "");
+			$("#psrn").attr("required", "");
+		}
+		else {
+			$("#idno").parent().removeClass("input-group");
+			$("#idno").siblings("#suffix").removeClass("input-group-addon");
+			$("#faculty").attr("hidden", "")
+			$("#dept").removeAttr("required");
+			$("#psrn").removeAttr("required");
+		};
+	});
+	 $("#register-form").submit(function(event) {
+		var data = {
+			name:$("input[name=name]").val(),
+			institute:$("select[name=institute]").val(),
+			idno:$("input[name=idno]").val(),
+			phone:$("input[name=phone]").val(),
+			can_solve:$("input[name=can_solve]:checked").val(),
+		};
+		var pat = /^\d{4}.{4}\d{3}P$/;
+		if(!pat.test(data.idno) && data.institute == "BITS") {
+			alert(data.idno + " is an invalid ID No.");
+			return false;
+		}
+		if(data.institute == "Faculty") {
+			data.dept = $("input[name=dept]").val();
+			data.psrn = $("input[name=psrn]").val();
+		};
+		$.post({
+			url:'.',
+			data:data,
+			dataType:'json',
+			success:function(res) {
+				console.log(res);
+				if(res.error) {
+					$("#message").html("Sorry! Participant with this ID no. is already registered.");
+					$("#message").removeAttr("hidden");
+				}
+				else {
+					$('#register').trigger({type:"click"});
+					$("#message").attr("hidden", "");
+					$("input[name=name]").val("");
+					$("input[name=idno]").val("");
+					$("input[name=phone]").val("");
+					$("input[name=can_solve]:checked")[0].checked = false;
+				}
+			},
+			error:function(err, res) {
+				if(err) {
+					$("#message").html("Please check your internet connection.")
+					$("#message").removeAttr("hidden");
+				}
+			},
+		});
+		return false;
+	}); 
+	setInterval(function() {
+		$.get({
+			url:'.',
+			data:{'count':1},
+			success:function(res) {
+				clock.setTime(res.count);
+			}
+		})
+	}, 1000);
+</script>
 </body>
 </html>
