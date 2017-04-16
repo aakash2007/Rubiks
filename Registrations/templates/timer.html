@@ -238,27 +238,28 @@
 			<a href="/" class="inherit text-center">
 				<h1 class="sitehead">WORLD RECORD SOCIETY - BITS Pilani</h1>
 				<h1 class="tagline">GUTS TO DREAM BIG</h1>
-				<br>
+				<!-- <br> -->
 			</a>
 		</div>
 		<div class="col-sm-4" style="margin 0 auto;text-align:center;">
 			<a href="#" class="inherit"><img src="{% static 'images/guinness-logo-min.png' %}" class="small2"></a>
-			<br>
-		</div>
-	</div>
-</div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1" style="text-align:center;">
-			<button class="btn btn-lg btn-danger btn-circle start">Start</button>
+			<!-- <br> -->
 		</div>
 	</div>
 </div>
 <div class="container-fluid" style="text-align:center;">
 	<!-- <div class="midguy"> -->
 	<div class="col-sm-10 col-sm-offset-2">
-	<br>
+	<!-- <br> -->
 			<div class="clock"></div>
+	</div>
+</div>
+<br><br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1" style="text-align:center;">
+			<button class="btn btn-lg btn-danger btn-circle start">Start</button>
+		</div>
 	</div>
 </div>
 <div class="container-fluid">
@@ -268,7 +269,7 @@
 		</div>
 		</div>
 		<br> 
-		<button class="btn btn-info btn-lg stop" style="border-radius: 15px; margin-top: 5px;">Pause</button>
+		<!-- <button class="btn btn-info btn-lg stop" style="border-radius: 15px; margin-top: 5px;">Pause</button> -->
 	</div>
 	<br><br>
 </div>
@@ -297,15 +298,6 @@
 		    $('.start').click(function(e) {
 		    	clock.start();
 		    });
-
-		    $(".stop").click(function() {
-				var time = clock.getTime();
-				clock = $('.clock').FlipClock(time, {
-		    	    clockFace: 'MinuteCounter',
-			        countdown: true,
-			        autoStart: false,
-				});
-			});
 
 		});
 
