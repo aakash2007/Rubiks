@@ -225,7 +225,7 @@
 		}
 	</style>
 </head>
-<body background="{% static 'images/background.jpg' %}">
+<body background="{% static 'images/background2.png' %}">
 <div id="particles-js" style="background-color: transparent !important;"></div>
 <div class="container-fluid">
 	<div class="row">
@@ -290,7 +290,7 @@
 		var clock;
 		
 		$(document).ready(function() {
-			clock = $('.clock').FlipClock(1800, {
+			clock = $('.clock').FlipClock(30*60, {
 		        clockFace: 'MinuteCounter',
 		        countdown: true,
 		        autoStart: false,
